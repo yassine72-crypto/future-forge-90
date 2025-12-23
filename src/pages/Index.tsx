@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import FormationsSection from "@/components/FormationsSection";
+import EventsSection from "@/components/EventsSection";
+import MemoriesSection from "@/components/MemoriesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [isDark, setIsDark] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("light", !isDark);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen relative">
+      <AnimatedBackground />
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      
+      <main className="relative z-10">
+        <HeroSection />
+        <FormationsSection />
+        <EventsSection />
+        <MemoriesSection />
+        <TestimonialsSection />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
