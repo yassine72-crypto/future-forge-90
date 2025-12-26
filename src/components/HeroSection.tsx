@@ -42,20 +42,17 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Gradient Overlay - Professional dark overlay to make text readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50 z-[1]" />
-      
-      {/* Subtle color accent overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 z-[1]" />
+      {/* Professional Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40 z-[1]" />
 
       <div className="container relative z-10 pt-24 pb-20 px-4">
         <div className="max-w-5xl mx-auto">
           {/* Badge */}
           <div className="flex justify-center mb-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/60 backdrop-blur-lg border border-border/40 shadow-lg">
-              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-foreground/90">OFPPT - Formation Professionnelle</span>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/70 backdrop-blur-lg border border-border/40">
+              <div className="w-2 h-2 rounded-full bg-accent" />
+              <span className="text-sm font-medium text-foreground">OFPPT - Formation Professionnelle</span>
             </div>
           </div>
 
@@ -76,7 +73,7 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Button 
-              className="btn-gradient rounded-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg"
+              className="btn-gradient rounded-full px-8 py-6 text-base md:text-lg font-semibold"
               onClick={() => scrollToSection("formations")}
             >
               <GraduationCap className="w-5 h-5 mr-2" />
@@ -84,7 +81,7 @@ const HeroSection = () => {
             </Button>
             <Button 
               variant="outline"
-              className="rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-card/40 backdrop-blur-lg border-border/50 hover:bg-card/60 hover:border-primary/50 transition-all"
+              className="rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-card/50 backdrop-blur-lg border-border/50 hover:bg-card/70 hover:border-primary/50 transition-all"
               onClick={() => scrollToSection("events")}
             >
               Nos événements
@@ -93,25 +90,25 @@ const HeroSection = () => {
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+            <div className="glass-hero rounded-2xl p-6 text-center card-hover">
               <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
                 <GraduationCap className="w-6 h-6 text-primary" />
               </div>
               <div className="text-3xl md:text-4xl font-display font-bold gradient-text mb-1">15+</div>
               <div className="text-sm text-muted-foreground">Formations Disponibles</div>
             </div>
-            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+            <div className="glass-hero rounded-2xl p-6 text-center card-hover">
               <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-secondary" />
               </div>
               <div className="text-3xl md:text-4xl font-display font-bold gradient-text-secondary mb-1">500+</div>
               <div className="text-sm text-muted-foreground">Stagiaires Formés</div>
             </div>
-            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+            <div className="glass-hero rounded-2xl p-6 text-center card-hover">
               <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
                 <Award className="w-6 h-6 text-accent" />
               </div>
-              <div className="text-3xl md:text-4xl font-display font-bold gradient-text-gold mb-1">95%</div>
+              <div className="text-3xl md:text-4xl font-display font-bold gradient-text-accent mb-1">95%</div>
               <div className="text-sm text-muted-foreground">Taux de Réussite</div>
             </div>
           </div>
