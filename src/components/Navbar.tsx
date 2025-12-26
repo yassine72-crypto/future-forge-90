@@ -55,16 +55,18 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
         <div className="flex items-center justify-between h-20">
           {/* Brand with Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <img 
-              src={logoOfppt} 
-              alt="OFPPT ISTA Roches Noires" 
-              className="h-14 w-auto object-contain group-hover:scale-105 transition-transform"
-            />
+            <div className="h-14 w-14 rounded-full overflow-hidden bg-white shadow-md group-hover:scale-105 transition-transform">
+              <img 
+                src={logoOfppt} 
+                alt="OFPPT ISTA Roches Noires" 
+                className="h-full w-full object-cover"
+              />
+            </div>
             <div className="hidden sm:flex flex-col">
               <span className="font-display font-bold text-base text-foreground leading-tight">
                 ISTA Roches Noires
               </span>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-foreground/70">
                 Formation Professionnelle
               </span>
             </div>
@@ -77,10 +79,10 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
                 <Link
                   to={link.href.startsWith("/#") && location.pathname === "/" ? link.href : link.href.startsWith("/#") ? "/" : link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-muted-foreground font-medium hover:text-primary transition-colors relative group"
+                  className="text-foreground font-medium hover:text-primary transition-colors relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                 </Link>
               </li>
             ))}
@@ -141,7 +143,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
                   <Link
                     to={link.href.startsWith("/#") ? "/" : link.href}
                     onClick={() => handleNavClick(link.href)}
-                    className="block py-2 text-muted-foreground font-medium hover:text-primary transition-colors"
+                    className="block py-2 text-foreground font-medium hover:text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
