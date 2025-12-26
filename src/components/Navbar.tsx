@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X, Shield } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import logoOfppt from "@/assets/logo-ofppt.png";
 
 interface NavbarProps {
   isDark: boolean;
@@ -46,20 +47,27 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-background/80 border-b border-border/50"
+          ? "backdrop-blur-xl bg-background/90 border-b border-border/50 shadow-sm"
           : "backdrop-blur-sm bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Brand */}
+          {/* Brand with Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center font-display font-bold text-background text-lg shadow-lg group-hover:scale-105 transition-transform">
-              IR
+            <img 
+              src={logoOfppt} 
+              alt="OFPPT ISTA Roches Noires" 
+              className="h-14 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
+            <div className="hidden sm:flex flex-col">
+              <span className="font-display font-bold text-base text-foreground leading-tight">
+                ISTA Roches Noires
+              </span>
+              <span className="text-xs text-muted-foreground">
+                Formation Professionnelle
+              </span>
             </div>
-            <h1 className="font-display font-bold text-lg gradient-text hidden sm:block">
-              ISTA Roches Noires
-            </h1>
           </Link>
 
           {/* Desktop Navigation */}
@@ -79,7 +87,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
           </ul>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="icon"
@@ -91,7 +99,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
 
             {isAdmin && (
               <Link to="/admin">
-                <Button variant="outline" size="sm" className="hidden sm:flex gap-2">
+                <Button variant="outline" size="sm" className="hidden sm:flex gap-2 rounded-full">
                   <Shield className="w-4 h-4" />
                   Admin
                 </Button>
@@ -142,7 +150,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               <li className="pt-4 border-t border-border/50 flex gap-3">
                 {isAdmin && (
                   <Link to="/admin" className="flex-1">
-                    <Button variant="outline" className="w-full gap-2">
+                    <Button variant="outline" className="w-full gap-2 rounded-full">
                       <Shield className="w-4 h-4" />
                       Admin
                     </Button>
