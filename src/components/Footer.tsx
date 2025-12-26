@@ -34,10 +34,9 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-foreground mb-4">Navigation</h4>
             <nav className="flex flex-col gap-2 text-sm">
               <Link to="/" className="text-foreground/60 hover:text-primary transition-colors">Accueil</Link>
-              <Link to="/#formations" className="text-foreground/60 hover:text-primary transition-colors">Formations</Link>
-              <Link to="/#events" className="text-foreground/60 hover:text-primary transition-colors">Événements</Link>
-              <Link to="/#memories" className="text-foreground/60 hover:text-primary transition-colors">Galerie</Link>
-              <Link to="/#testimonials" className="text-foreground/60 hover:text-primary transition-colors">Témoignages</Link>
+              <Link to="/formations" className="text-foreground/60 hover:text-primary transition-colors">Formations</Link>
+              <Link to="/evenements" className="text-foreground/60 hover:text-primary transition-colors">Événements</Link>
+              <Link to="/galerie" className="text-foreground/60 hover:text-primary transition-colors">Galerie</Link>
             </nav>
           </div>
 
