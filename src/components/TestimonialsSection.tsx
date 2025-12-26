@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -39,8 +39,8 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="relative py-24 px-4">
       <div className="container max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-display font-black text-center mb-12">
-          <span className="gradient-text">Témoignages</span> de nos Étudiants
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12 text-foreground">
+          Témoignages de nos Étudiants
         </h2>
 
         <div className="relative">
@@ -60,12 +60,12 @@ const TestimonialsSection = () => {
                 </blockquote>
                 
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-background font-bold text-lg">
+                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-lg">
                     {testimonial.author.charAt(0)}
                   </div>
                   <div>
                     <p className="font-bold text-foreground">{testimonial.author}</p>
-                    <p className="text-sm text-primary">{testimonial.role}</p>
+                    <p className="text-sm text-foreground/70">{testimonial.role}</p>
                   </div>
                 </div>
               </div>
@@ -80,8 +80,8 @@ const TestimonialsSection = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === current
-                    ? "bg-gradient-to-r from-primary to-secondary w-8 glow-primary"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    ? "bg-primary w-8"
+                    : "bg-foreground/30 hover:bg-foreground/50"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
