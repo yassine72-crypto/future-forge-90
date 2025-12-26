@@ -58,13 +58,13 @@ const HeroSection = () => {
 
           {/* Main Title */}
           <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight">
-              <span className="gradient-text">ISTA</span>
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight text-foreground">
+              ISTA
             </h1>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
               Roches Noires
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               L'excellence en formation professionnelle au Maroc. 
               Préparez votre avenir avec des formations de haute qualité.
             </p>
