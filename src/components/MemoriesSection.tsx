@@ -24,10 +24,10 @@ const MemoriesSection = () => {
     <section id="memories" className="relative py-24 px-4">
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-display font-black mb-4">
-            <span className="gradient-text">Galerie</span> & Souvenirs
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-foreground">
+            Galerie & Souvenirs
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Les meilleurs moments capturés lors de nos événements et formations
           </p>
         </div>
@@ -41,7 +41,7 @@ const MemoriesSection = () => {
             {memories.map((memory, index) => (
               <div
                 key={memory.id}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer glass-card hover:border-secondary/50 transition-all duration-300 animate-fade-in"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer glass-card hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
                 onClick={() => setSelectedImage(memory.image_url)}
               >
@@ -60,7 +60,7 @@ const MemoriesSection = () => {
                       {memory.title}
                     </h3>
                     {memory.description && (
-                      <p className="text-sm text-muted-foreground line-clamp-2">
+                      <p className="text-sm text-foreground/70 line-clamp-2">
                         {memory.description}
                       </p>
                     )}
@@ -71,8 +71,8 @@ const MemoriesSection = () => {
           </div>
         ) : (
           <div className="text-center py-12 glass-card rounded-2xl">
-            <ImageIcon className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-            <p className="text-muted-foreground">Aucune photo disponible pour le moment.</p>
+            <ImageIcon className="w-16 h-16 mx-auto mb-4 text-foreground/30" />
+            <p className="text-foreground/70">Aucune photo disponible pour le moment.</p>
           </div>
         )}
       </div>
@@ -84,7 +84,7 @@ const MemoriesSection = () => {
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-background font-bold hover:scale-110 transition-transform"
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold hover:scale-110 transition-transform"
             onClick={() => setSelectedImage(null)}
           >
             <X className="w-6 h-6" />
@@ -92,7 +92,7 @@ const MemoriesSection = () => {
           <img
             src={selectedImage}
             alt="Memory"
-            className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border-4 border-secondary/50"
+            className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border-4 border-primary/50"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

@@ -24,7 +24,7 @@ const EventsSection = () => {
     <section id="events" className="relative py-24 px-4">
       <div className="container max-w-4xl">
         <div className="glass-card-strong rounded-3xl p-8 md:p-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-display font-black text-center mb-12 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12 text-foreground">
             Événements
           </h2>
 
@@ -41,7 +41,7 @@ const EventsSection = () => {
                   className="block group"
                 >
                   <div 
-                    className="glass-card rounded-2xl p-6 md:p-8 hover:border-secondary/50 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 animate-fade-in"
+                    className="glass-card rounded-2xl p-6 md:p-8 hover:border-primary/50 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 animate-fade-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex flex-col md:flex-row gap-6">
@@ -57,7 +57,7 @@ const EventsSection = () => {
                       )}
 
                       <div className="flex-1">
-                        <div className="flex items-center gap-2 text-secondary font-bold text-sm mb-2 uppercase tracking-wider">
+                        <div className="flex items-center gap-2 text-primary font-bold text-sm mb-2 uppercase tracking-wider">
                           {event.is_upcoming && (
                             <>
                               <Flame className="w-4 h-4" />
@@ -66,15 +66,15 @@ const EventsSection = () => {
                           )}
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-display font-black gradient-text mb-3">
+                        <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
                           {event.title}
                         </h3>
 
-                        <p className="text-muted-foreground mb-4 line-clamp-2">
+                        <p className="text-foreground/70 mb-4 line-clamp-2">
                           {event.description}
                         </p>
 
-                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                        <div className="flex flex-wrap gap-4 text-sm text-foreground/70">
                           <div className="flex items-center gap-2">
                             <Calendar className="w-4 h-4 text-primary" />
                             <span>
@@ -102,8 +102,8 @@ const EventsSection = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <Calendar className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-              <p className="text-muted-foreground">Aucun événement programmé pour le moment.</p>
+              <Calendar className="w-16 h-16 mx-auto mb-4 text-foreground/30" />
+              <p className="text-foreground/70">Aucun événement programmé pour le moment.</p>
             </div>
           )}
         </div>

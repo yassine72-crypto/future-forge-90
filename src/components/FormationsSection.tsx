@@ -22,10 +22,10 @@ const FormationsSection = () => {
     <section id="formations" className="relative py-24 px-4">
       <div className="container">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-display font-black mb-4">
-            Nos <span className="gradient-text">Formations</span> & Programmes
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-foreground">
+            Nos Formations & Programmes
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Des programmes d'excellence pour préparer votre avenir professionnel
           </p>
         </div>
@@ -43,17 +43,12 @@ const FormationsSection = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative">
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"
-                    style={{ background: 'linear-gradient(135deg, hsl(185 100% 50% / 0.2), hsl(330 100% 50% / 0.2))' }}
-                  />
-                  
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                       {formation.type === 'diplomante' ? (
                         <Award className="w-7 h-7 text-primary" />
                       ) : (
-                        <GraduationCap className="w-7 h-7 text-secondary" />
+                        <GraduationCap className="w-7 h-7 text-primary" />
                       )}
                     </div>
                     <Badge 
@@ -64,11 +59,11 @@ const FormationsSection = () => {
                     </Badge>
                   </div>
 
-                  <h3 className="text-xl font-display font-bold mb-4 gradient-text">
+                  <h3 className="text-xl font-display font-bold mb-4 text-foreground">
                     {formation.title}
                   </h3>
                   
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-foreground/70 leading-relaxed">
                     {formation.description}
                   </p>
                 </div>
@@ -77,8 +72,8 @@ const FormationsSection = () => {
           </div>
         ) : (
           <div className="text-center py-12 glass-card rounded-2xl">
-            <GraduationCap className="w-16 h-16 mx-auto mb-4 text-muted-foreground/50" />
-            <p className="text-muted-foreground">Aucune formation disponible pour le moment.</p>
+            <GraduationCap className="w-16 h-16 mx-auto mb-4 text-foreground/30" />
+            <p className="text-foreground/70">Aucune formation disponible pour le moment.</p>
           </div>
         )}
       </div>
