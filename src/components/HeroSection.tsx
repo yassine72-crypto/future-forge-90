@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, GraduationCap, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroSchool1 from "@/assets/hero-school-1.jpg";
 import heroSchool2 from "@/assets/hero-school-2.jpg";
@@ -13,7 +13,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -24,12 +24,14 @@ const HeroSection = () => {
 
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Slideshow Background */}
+      {/* Full-screen Slideshow Background */}
       {heroImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentImageIndex ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0 transition-all duration-[2000ms] ease-out ${
+            index === currentImageIndex 
+              ? "opacity-100 scale-100" 
+              : "opacity-0 scale-105"
           }`}
         >
           <img
@@ -40,103 +42,105 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-accent/20 z-[1]" />
+      {/* Gradient Overlay - Professional dark overlay to make text readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50 z-[1]" />
+      
+      {/* Subtle color accent overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 z-[1]" />
 
-      {/* Animated Accent Lines */}
-      <div className="absolute inset-0 z-[2] overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/30 to-transparent animate-pulse" />
-        <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-accent/30 to-transparent animate-pulse" style={{ animationDelay: "1s" }} />
-      </div>
-
-      <div className="container relative z-10 pt-20 pb-16 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Floating Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-primary/30 mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-primary">OFPPT - Formation Professionnelle</span>
+      <div className="container relative z-10 pt-24 pb-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          {/* Badge */}
+          <div className="flex justify-center mb-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card/60 backdrop-blur-lg border border-border/40 shadow-lg">
+              <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-foreground/90">OFPPT - Formation Professionnelle</span>
+            </div>
           </div>
 
-          {/* Main Content Card */}
-          <div className="relative glass-card-strong rounded-3xl p-8 md:p-12 lg:p-16 animate-fade-in backdrop-blur-xl border border-white/10">
-            {/* Top accent line */}
-            <div className="absolute -top-px left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
-            
-            {/* Corner decorations */}
-            <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary/50 rounded-tl-lg" />
-            <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-accent/50 rounded-tr-lg" />
-            <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-accent/50 rounded-bl-lg" />
-            <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary/50 rounded-br-lg" />
-
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-display font-black mb-6 leading-tight">
+          {/* Main Title */}
+          <div className="text-center mb-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-display font-extrabold mb-4 tracking-tight">
               <span className="gradient-text">ISTA</span>
-              <br />
-              <span className="text-foreground">Roches Noires</span>
             </h1>
-            
-            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-              L'excellence en formation professionnelle. Préparez votre avenir avec des 
-              <span className="text-primary font-semibold"> formations qualifiantes</span> et 
-              <span className="text-accent font-semibold"> diplômantes</span> de haute qualité.
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-6">
+              Roches Noires
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              L'excellence en formation professionnelle au Maroc. 
+              Préparez votre avenir avec des formations de haute qualité.
             </p>
+          </div>
 
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button 
-                className="btn-gradient rounded-full px-8 py-6 text-lg font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:scale-105"
-                onClick={() => scrollToSection("formations")}
-              >
-                Découvrir nos formations
-              </Button>
-              <Button 
-                variant="outline"
-                className="rounded-full px-8 py-6 text-lg font-bold border-2 border-border/50 hover:border-primary hover:text-primary hover:bg-primary/10 transition-all hover:scale-105"
-                onClick={() => scrollToSection("events")}
-              >
-                Nos événements
-              </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <Button 
+              className="btn-gradient rounded-full px-8 py-6 text-base md:text-lg font-semibold shadow-lg"
+              onClick={() => scrollToSection("formations")}
+            >
+              <GraduationCap className="w-5 h-5 mr-2" />
+              Découvrir nos formations
+            </Button>
+            <Button 
+              variant="outline"
+              className="rounded-full px-8 py-6 text-base md:text-lg font-semibold bg-card/40 backdrop-blur-lg border-border/50 hover:bg-card/60 hover:border-primary/50 transition-all"
+              onClick={() => scrollToSection("events")}
+            >
+              Nos événements
+            </Button>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <GraduationCap className="w-6 h-6 text-primary" />
+              </div>
+              <div className="text-3xl md:text-4xl font-display font-bold gradient-text mb-1">15+</div>
+              <div className="text-sm text-muted-foreground">Formations Disponibles</div>
             </div>
-
-            {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-border/30">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-black gradient-text">15+</div>
-                <div className="text-sm text-muted-foreground">Formations</div>
+            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="w-6 h-6 text-secondary" />
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-black gradient-text">500+</div>
-                <div className="text-sm text-muted-foreground">Stagiaires</div>
+              <div className="text-3xl md:text-4xl font-display font-bold gradient-text-secondary mb-1">500+</div>
+              <div className="text-sm text-muted-foreground">Stagiaires Formés</div>
+            </div>
+            <div className="glass-hero rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                <Award className="w-6 h-6 text-accent" />
               </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-black gradient-text">95%</div>
-                <div className="text-sm text-muted-foreground">Réussite</div>
-              </div>
+              <div className="text-3xl md:text-4xl font-display font-bold gradient-text-gold mb-1">95%</div>
+              <div className="text-sm text-muted-foreground">Taux de Réussite</div>
             </div>
           </div>
 
-          {/* Image Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
+          {/* Image Navigation Dots */}
+          <div className="flex justify-center gap-3 mt-12">
             {heroImages.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-500 ${
                   index === currentImageIndex 
-                    ? "bg-primary w-8" 
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    ? "bg-primary w-10" 
+                    : "bg-foreground/20 w-2 hover:bg-foreground/40"
                 }`}
+                aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <button
         onClick={() => scrollToSection("formations")}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary animate-bounce cursor-pointer z-10 glass-card p-3 rounded-full"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 p-3 rounded-full glass-card hover:bg-primary/20 transition-colors animate-bounce"
+        aria-label="Scroll to formations"
       >
-        <ChevronDown className="w-6 h-6" />
+        <ChevronDown className="w-6 h-6 text-primary" />
       </button>
     </header>
   );
