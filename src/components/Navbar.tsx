@@ -26,21 +26,13 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
 
   const navLinks = [
     { href: "/", label: "Accueil" },
-    { href: "/#formations", label: "Formations" },
-    { href: "/#events", label: "Événements" },
-    { href: "/#memories", label: "Galerie" },
-    { href: "/#testimonials", label: "Avis" },
+    { href: "/formations", label: "Formations" },
+    { href: "/evenements", label: "Événements" },
+    { href: "/galerie", label: "Galerie" },
   ];
 
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    if (href.startsWith("/#")) {
-      const elementId = href.replace("/#", "");
-      if (location.pathname === "/") {
-        const element = document.getElementById(elementId);
-        element?.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+  const isActive = (href: string) => {
+    return location.pathname === href;
   };
 
   return (
@@ -77,12 +69,17 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
-                  to={link.href.startsWith("/#") && location.pathname === "/" ? link.href : link.href.startsWith("/#") ? "/" : link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="text-foreground font-medium hover:text-primary transition-colors relative group"
+                  to={link.href}
+                  className={`font-medium transition-colors relative group ${
+                    isActive(link.href) 
+                      ? "text-primary" 
+                      : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all ${
+                    isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"
+                  }`} />
                 </Link>
               </li>
             ))}
@@ -137,13 +134,17 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-border/50 animate-fade-in">
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    to={link.href.startsWith("/#") ? "/" : link.href}
-                    onClick={() => handleNavClick(link.href)}
-                    className="block py-2 text-foreground font-medium hover:text-primary transition-colors"
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-3 px-4 rounded-lg font-medium transition-colors ${
+                      isActive(link.href)
+                        ? "bg-primary/10 text-primary"
+                        : "text-foreground hover:bg-muted/50 hover:text-primary"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -151,14 +152,14 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
               ))}
               <li className="pt-4 border-t border-border/50 flex gap-3">
                 {isAdmin && (
-                  <Link to="/admin" className="flex-1">
+                  <Link to="/admin" className="flex-1" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full gap-2 rounded-full">
                       <Shield className="w-4 h-4" />
                       Admin
                     </Button>
                   </Link>
                 )}
-                <Link to={user ? "/admin" : "/auth"} className="flex-1">
+                <Link to={user ? "/admin" : "/auth"} className="flex-1" onClick={() => setIsOpen(false)}>
                   <Button className="btn-gradient w-full rounded-full">
                     {user ? "Dashboard" : "Connexion"}
                   </Button>
