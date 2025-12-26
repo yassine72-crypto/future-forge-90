@@ -1,69 +1,99 @@
 const AnimatedBackground = () => {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden">
-      {/* Gradient base */}
+      {/* Professional gradient base matching OFPPT colors */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, hsl(280 40% 12%) 0%, hsl(220 40% 12%) 50%, hsl(210 50% 15%) 100%)'
+          background: 'linear-gradient(180deg, hsl(210 25% 6%) 0%, hsl(210 30% 10%) 50%, hsl(210 25% 8%) 100%)'
         }}
       />
       
-      {/* Animated waves */}
-      <div className="absolute w-[200%] h-[200%] animate-wave opacity-10"
+      {/* Subtle animated gradient orbs */}
+      <div 
+        className="absolute w-[800px] h-[800px] rounded-full animate-glow"
         style={{
-          background: 'linear-gradient(90deg, transparent, hsl(330 100% 50%), hsl(185 100% 50%), transparent)',
+          left: '-10%',
+          top: '-20%',
+          background: 'radial-gradient(circle, hsla(174 72% 40% / 0.08) 0%, transparent 70%)',
         }}
       />
-      <div className="absolute w-[200%] h-[200%] animate-wave opacity-[0.08]"
+      <div 
+        className="absolute w-[600px] h-[600px] rounded-full animate-glow"
         style={{
-          background: 'linear-gradient(90deg, transparent, hsl(330 100% 50%), hsl(185 100% 50%), transparent)',
-          animationDelay: '-2s',
+          right: '-5%',
+          bottom: '-10%',
+          background: 'radial-gradient(circle, hsla(210 85% 45% / 0.08) 0%, transparent 70%)',
+          animationDelay: '1.5s',
         }}
       />
-      <div className="absolute w-[200%] h-[200%] animate-wave opacity-[0.06]"
+      <div 
+        className="absolute w-[500px] h-[500px] rounded-full animate-glow"
         style={{
-          background: 'linear-gradient(90deg, transparent, hsl(330 100% 50%), hsl(185 100% 50%), transparent)',
-          animationDelay: '-4s',
+          right: '30%',
+          top: '20%',
+          background: 'radial-gradient(circle, hsla(145 63% 40% / 0.05) 0%, transparent 70%)',
+          animationDelay: '3s',
+        }}
+      />
+      
+      {/* Grid pattern overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, hsl(210 20% 50%) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(210 20% 50%) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
         }}
       />
       
       {/* Floating particles */}
       <div className="pointer-events-none absolute inset-0">
         <div 
-          className="absolute w-6 h-6 rounded-full animate-float opacity-20 blur-sm"
+          className="absolute w-2 h-2 rounded-full animate-float opacity-30"
           style={{ 
-            left: '8%', 
-            top: '65%', 
-            background: 'linear-gradient(180deg, hsl(185 100% 50%), hsl(330 100% 50%))',
+            left: '10%', 
+            top: '60%', 
+            background: 'hsl(174 72% 40%)',
+            animationDuration: '15s' 
+          }} 
+        />
+        <div 
+          className="absolute w-1.5 h-1.5 rounded-full animate-float opacity-25"
+          style={{ 
+            left: '50%', 
+            top: '75%', 
+            background: 'hsl(210 85% 45%)',
             animationDuration: '12s' 
           }} 
         />
         <div 
-          className="absolute w-4 h-4 rounded-full animate-float opacity-15 blur-sm"
+          className="absolute w-2 h-2 rounded-full animate-float opacity-20"
           style={{ 
-            left: '52%', 
-            top: '80%', 
-            background: 'linear-gradient(180deg, hsl(185 100% 50%), hsl(330 100% 50%))',
-            animationDuration: '9s' 
+            left: '85%', 
+            top: '55%', 
+            background: 'hsl(145 63% 40%)',
+            animationDuration: '18s' 
           }} 
         />
         <div 
-          className="absolute w-7 h-7 rounded-full animate-float opacity-15 blur-sm"
-          style={{ 
-            left: '80%', 
-            top: '60%', 
-            background: 'linear-gradient(180deg, hsl(185 100% 50%), hsl(330 100% 50%))',
-            animationDuration: '14s' 
-          }} 
-        />
-        <div 
-          className="absolute w-5 h-5 rounded-full animate-float opacity-20 blur-sm"
+          className="absolute w-1 h-1 rounded-full animate-float opacity-30"
           style={{ 
             left: '25%', 
-            top: '40%', 
-            background: 'linear-gradient(180deg, hsl(185 100% 50%), hsl(330 100% 50%))',
+            top: '35%', 
+            background: 'hsl(174 72% 40%)',
             animationDuration: '10s' 
+          }} 
+        />
+        <div 
+          className="absolute w-1.5 h-1.5 rounded-full animate-float opacity-25"
+          style={{ 
+            left: '70%', 
+            top: '25%', 
+            background: 'hsl(210 85% 45%)',
+            animationDuration: '14s' 
           }} 
         />
       </div>
