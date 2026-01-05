@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { Calendar, MapPin, Clock, Loader2, ArrowLeft, Images } from "lucide-react";
+import { Calendar, MapPin, Clock, Loader2, ArrowLeft } from "lucide-react";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { Badge } from "@/components/ui/badge";
@@ -11,20 +11,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 
-// Event gallery images
-import eventImg1 from "@/assets/pic_evenement1.jpg";
-import eventImg2 from "@/assets/pic_evenement2.jpg";
-import eventImg3 from "@/assets/pic_evenement3.jpg";
-import eventImg4 from "@/assets/pic_evenement4.jpg";
-import eventImg5 from "@/assets/pic_evenement5.jpg";
-
-const eventGalleryImages = [
-  { src: eventImg1, alt: "Remise de certificat DevTalk" },
-  { src: eventImg2, alt: "Photo de groupe DevTalk" },
-  { src: eventImg3, alt: "Présentation DevTalk" },
-  { src: eventImg4, alt: "Session de discussion" },
-  { src: eventImg5, alt: "Équipe organisatrice DevTalk" },
-];
 
 const Events = () => {
   const [isDark, setIsDark] = useState(true);
@@ -204,34 +190,6 @@ const Events = () => {
                 </section>
               )}
 
-              {/* Event Gallery Section */}
-              <section>
-                <div className="flex items-center gap-3 mb-8">
-                  <Images className="w-6 h-6 text-primary" />
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
-                    Galerie des Événements
-                  </h2>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                  {eventGalleryImages.map((image, index) => (
-                    <div
-                      key={index}
-                      className="group relative aspect-square rounded-xl overflow-hidden border border-border/40 hover:border-primary/50 transition-all duration-300 animate-fade-in"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <img 
-                        src={image.src} 
-                        alt={image.alt}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="text-sm text-foreground font-medium truncate">{image.alt}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
 
               {events?.length === 0 && (
                 <div className="text-center py-20 bg-card/30 backdrop-blur-sm rounded-2xl border border-border/30">
