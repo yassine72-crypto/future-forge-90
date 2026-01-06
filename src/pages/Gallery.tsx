@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { ImageIcon, Loader2, X, Camera, ArrowLeft } from "lucide-react";
+import { ImageIcon, Loader2, X, Camera, ArrowLeft, Play } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -28,6 +28,12 @@ const staticGalleryImages = [
   { id: "static-7", image_url: galleryEvent5, title: "Équipe organisatrice DevTalk", events: null },
   { id: "static-8", image_url: galleryBuilding, title: "Bâtiment de l'institut", events: null },
 ];
+
+const galleryVideo = {
+  id: "video-1",
+  url: "/videos/gallery-video.mp4",
+  title: "Vidéo de l'école",
+};
 
 const Gallery = () => {
   const [isDark, setIsDark] = useState(true);
@@ -134,6 +140,33 @@ const Gallery = () => {
             </div>
           ) : filteredMemories && filteredMemories.length > 0 ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {/* Video Card - Only show when filter is "all" */}
+              {filter === "all" && (
+                <div
+                  className="group relative rounded-xl overflow-hidden cursor-pointer bg-card/30 border border-border/30 hover:border-primary/50 transition-all duration-300 animate-fade-in col-span-2 row-span-2"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <video
+                      src={galleryVideo.url}
+                      className="w-full h-full object-cover"
+                      controls
+                      playsInline
+                    />
+                  </div>
+                  
+                  {/* Label */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background/80 to-transparent p-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                        <Play className="w-4 h-4 text-primary" />
+                      </div>
+                      <h3 className="text-sm font-semibold text-foreground">
+                        {galleryVideo.title}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              )}
               {filteredMemories.map((memory, index) => (
                 <div
                   key={memory.id}
