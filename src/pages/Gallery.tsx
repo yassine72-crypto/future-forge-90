@@ -99,30 +99,10 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Filter */}
-          {events && events.length > 0 && (
-            <div className="flex flex-wrap justify-center gap-2 mb-10">
-              <Button
-                variant={filter === "all" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setFilter("all")}
-                className="rounded-full"
-              >
-                Toutes les photos
-              </Button>
-              {events.map((event) => (
-                <Button
-                  key={event.id}
-                  variant={filter === event.id ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setFilter(event.id)}
-                  className="rounded-full"
-                >
-                  {event.title}
-                </Button>
-              ))}
-            </div>
-          )}
+          {/* Section Title */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-semibold text-foreground">Toutes les photos</h2>
+          </div>
 
           {isLoading ? (
             <div className="flex justify-center py-20">
