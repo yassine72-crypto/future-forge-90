@@ -11,22 +11,12 @@ import Footer from "@/components/Footer";
 // Static gallery images
 import galleryHero2 from "@/assets/gallery-hero2.jpg";
 import galleryHero3 from "@/assets/gallery-hero3.jpg";
-import galleryEvent1 from "@/assets/gallery-event1.jpg";
-import galleryEvent2 from "@/assets/gallery-event2.jpg";
-import galleryEvent3 from "@/assets/gallery-event3.jpg";
-import galleryEvent4 from "@/assets/gallery-event4.jpg";
-import galleryEvent5 from "@/assets/gallery-event5.jpg";
 import galleryBuilding from "@/assets/gallery-building.jpg";
 
 const staticGalleryImages = [
   { id: "static-1", image_url: galleryHero2, title: "ISTA Great Step - Événement", events: null },
   { id: "static-2", image_url: galleryHero3, title: "Don de sang", events: null },
-  { id: "static-3", image_url: galleryEvent1, title: "Remise de certificat DevTalk", events: null },
-  { id: "static-4", image_url: galleryEvent2, title: "Photo de groupe DevTalk", events: null },
-  { id: "static-5", image_url: galleryEvent3, title: "Présentation DevTalk", events: null },
-  { id: "static-6", image_url: galleryEvent4, title: "Session de discussion", events: null },
-  { id: "static-7", image_url: galleryEvent5, title: "Équipe organisatrice DevTalk", events: null },
-  { id: "static-8", image_url: galleryBuilding, title: "Bâtiment de l'institut", events: null },
+  { id: "static-3", image_url: galleryBuilding, title: "Bâtiment de l'institut", events: null },
 ];
 
 const galleryVideo = {
