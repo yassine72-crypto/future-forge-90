@@ -3,9 +3,8 @@ import { ChevronDown, GraduationCap, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroSchool1 from "@/assets/hero-school-1.jpg";
 import heroSchool2 from "@/assets/hero-school-2.jpg";
-import heroSchool3 from "@/assets/hero-school-3.jpg";
 
-const heroImages = [heroSchool1, heroSchool2, heroSchool3];
+const heroImages = [heroSchool1, heroSchool2];
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
