@@ -1,21 +1,8 @@
-import { useState, useEffect } from "react";
 import { ChevronDown, GraduationCap, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroSchool1 from "@/assets/hero-school-1.jpg";
-import heroSchool2 from "@/assets/hero-school-2.jpg";
-
-const heroImages = [heroSchool1, heroSchool2];
+import heroMain from "@/assets/hero-main.jpg";
 
 const HeroSection = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -23,23 +10,14 @@ const HeroSection = () => {
 
   return (
     <header className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Full-screen Slideshow Background */}
-      {heroImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-all duration-[2000ms] ease-out ${
-            index === currentImageIndex 
-              ? "opacity-100 scale-100" 
-              : "opacity-0 scale-105"
-          }`}
-        >
-          <img
-            src={image}
-            alt={`ISTA Roches Noires ${index + 1}`}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-      ))}
+      {/* Single Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src={heroMain}
+          alt="ISTA Roches Noires"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
 
       {/* Professional Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background z-[1]" />
@@ -112,21 +90,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Image Navigation Dots */}
-          <div className="flex justify-center gap-3 mt-12">
-            {heroImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  index === currentImageIndex 
-                    ? "bg-primary w-10" 
-                    : "bg-foreground/20 w-2 hover:bg-foreground/40"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
 
