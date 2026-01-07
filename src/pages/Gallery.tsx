@@ -12,11 +12,17 @@ import Footer from "@/components/Footer";
 import galleryHero2 from "@/assets/gallery-hero2.jpg";
 import galleryHero3 from "@/assets/gallery-hero3.jpg";
 import galleryBuilding from "@/assets/gallery-building.jpg";
+import galleryPhoto1 from "@/assets/gallery-photo1.png";
+import galleryPhoto2 from "@/assets/gallery-photo2.png";
+import galleryPhoto3 from "@/assets/gallery-photo3.png";
 
 const staticGalleryImages = [
   { id: "static-1", image_url: galleryHero2, title: "ISTA Great Step - Événement", events: null },
   { id: "static-2", image_url: galleryHero3, title: "Don de sang", events: null },
   { id: "static-3", image_url: galleryBuilding, title: "Bâtiment de l'institut", events: null },
+  { id: "static-4", image_url: galleryPhoto1, title: "Épargne et Prévoyance - Photo de groupe", events: null },
+  { id: "static-5", image_url: galleryPhoto2, title: "Épargne et Prévoyance - Présentation", events: null },
+  { id: "static-6", image_url: galleryPhoto3, title: "Épargne et Prévoyance - Session", events: null },
 ];
 
 const galleryVideo = {
