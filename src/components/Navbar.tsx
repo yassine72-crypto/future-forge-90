@@ -28,7 +28,7 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
     { href: "/", label: "Accueil" },
     { href: "/formations", label: "Formations" },
     { href: "/evenements", label: "Événements" },
-    { href: "/galerie", label: "Galerie" },
+    { href: "/galerie", label: "Activités" },
   ];
 
   const isActive = (href: string) => {

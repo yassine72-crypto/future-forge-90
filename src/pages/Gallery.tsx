@@ -97,7 +97,7 @@ const Gallery = () => {
                 <span className="text-sm font-medium text-accent">Photos & Souvenirs</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 text-foreground">
-                Galerie
+                Activités
               </h1>
               <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                 Les meilleurs moments capturés lors de nos événements et formations
