@@ -36,7 +36,7 @@ const Footer = () => {
               <Link to="/" className="text-foreground/60 hover:text-primary transition-colors">Accueil</Link>
               <Link to="/formations" className="text-foreground/60 hover:text-primary transition-colors">Formations</Link>
               <Link to="/evenements" className="text-foreground/60 hover:text-primary transition-colors">Événements</Link>
-              <Link to="/galerie" className="text-foreground/60 hover:text-primary transition-colors">Galerie</Link>
+              <Link to="/galerie" className="text-foreground/60 hover:text-primary transition-colors">Activités</Link>
             </nav>
           </div>
 

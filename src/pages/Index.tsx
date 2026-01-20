@@ -80,13 +80,13 @@ const Index = () => {
                       <Camera className="w-8 h-8 text-accent" />
                     </div>
                     <h3 className="text-2xl font-display font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                      Galerie
+                      Activités
                     </h3>
                     <p className="text-foreground/60 mb-6">
                       Parcourez les photos et souvenirs de nos événements et moments forts.
                     </p>
                     <div className="flex items-center gap-2 text-accent font-medium">
-                      <span>Voir la galerie</span>
+                      <span>Voir les activités</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
