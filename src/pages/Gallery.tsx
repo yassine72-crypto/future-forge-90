@@ -107,7 +107,7 @@ const Gallery = () => {
 
           {/* Section Title */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-semibold text-foreground">Toutes les photos</h2>
+            <h2 className="text-2xl font-semibold text-foreground">Archive</h2>
           </div>
 
           {isLoading ? (
