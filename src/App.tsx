@@ -14,12 +14,19 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Some preview hosts serve the app under a path prefix (e.g. /future-forge-90/).
+// Treat any first path segment that is not a known route as that prefix.
+const KNOWN_ROUTES = ["formations", "evenements", "galerie", "auth", "admin"];
+const firstSegment = window.location.pathname.split("/")[1] ?? "";
+const routerBasename =
+  firstSegment && !KNOWN_ROUTES.includes(firstSegment) ? `/${firstSegment}` : "/";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
