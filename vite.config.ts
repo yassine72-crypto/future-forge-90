@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/future-forge-90/",  // ← هذا السطر خاص GitHub Pages
+  // base intentionally default ("/") — Lovable hosting serves the app at the root
   server: {
     host: "::",
     port: 8080,
